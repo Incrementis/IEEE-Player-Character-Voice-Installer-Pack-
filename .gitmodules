@@ -1,0 +1,6 @@
+[submodule "IEEE-Audacity-Savefiles-for-Player-Character-"]
+	path = IEEE-Audacity-Savefiles-for-Player-Character-
+	url = https://github.com/Incrementis/IEEE-Audacity-Savefiles-for-Player-Character-.git
+[submodule "IEEE-Player-Character-Voice-Installer-"]
+	path = IEEE-Player-Character-Voice-Installer-
+	url = https://github.com/Incrementis/IEEE-Player-Character-Voice-Installer-.git
