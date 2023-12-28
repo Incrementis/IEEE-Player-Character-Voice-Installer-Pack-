@@ -14,6 +14,6 @@ LAM DYN_ARRAY_CLEANUP
 OUTER_SPRINT ~!_deleteArray~ ~%voxPositionArray%~
 LAM DYN_ARRAY_CLEANUP
 
-// WeiDU INTERNAL CELANUP!
+// WeiDU INTERNAL CLEANUP!
 // -----------------------
 CLEAR_EVERYTHING

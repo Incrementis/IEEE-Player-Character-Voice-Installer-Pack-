@@ -9,7 +9,7 @@ setlocal DISABLEDELAYEDEXPANSION
 REM ------------------------
 REM INIT Soundset File Names
 REM ------------------------
-Set soundsetName[0]=!_DEMA
+Set soundsetName[0]=!_DEMO
 Set soundsetName[1]=!_DEMB
 REM --------------
 REM INIT Languages
@@ -235,9 +235,9 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 	REM https://ss64.com/nt/delayedexpansion.html
 	Setlocal ENABLEDELAYEDEXPANSION
 	
-	REM ----------------------------
-	REM Count Custome Names for Loop
-	REM ----------------------------
+	REM -----------------------------
+	REM Counts Custome Names for Loop
+	REM -----------------------------
 	Set countedCustomNames=0
 	for /F "tokens=2 delims==" %%t in ('Set %%l[') do ( 
 		
@@ -245,9 +245,9 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 	)
 	Set /a countedCustomNames-=1
 	
-	REM -------------------------------
-	REM Change path to read sound files
-	REM -------------------------------
+	REM --------------------------------
+	REM Changes path to read sound files
+	REM --------------------------------
 	REM https://ss64.com/nt/dir.html; bare(/b) file sorted by name(/o:n)
 	cd "%VOX_FOLDER%\%%l"
 	set countedFiles=0
@@ -261,9 +261,9 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 	Set soundsetFiles
 	Set /a countedFiles-=1
 
-	REM -----------------------------------------------------------
-	REM Change path to create init-file and fill it with WeiDU code
-	REM -----------------------------------------------------------
+	REM ------------------------------------------------------------
+	REM Changes path to create init-file and fill it with WeiDU code
+	REM ------------------------------------------------------------
 	cd "%MOD_FOLDER%\%%l"
 	Copy NUL "InitVoxArrays.tpa"
 	REM --------------------------
@@ -349,18 +349,16 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 			
 			if /i "%%g"=="!sfname:~-6,-5!" (
 				
-				REM Accessing the array with loop, because "!full_names[%idx_counter%]!" doesn't work here.
+				REM Accesses the array with a loop because “!myArray[%index%]!” The syntax doesn't work here.
 				For /L %%u in (!count!,1,!count!) Do (
 					>>InitVoxArrays.tpa echo OUTER_SET ~Positions!index!~ = !positionsListBGEE[%%u]!
-					REM Set /a index+=1
 				)
 				
 			) else if /i "%%g"=="!sfname:~-7,-5!" (
 				
-				REM Accessing the array with loop, because "!full_names[%idx_counter%]!" doesn't work here.
+				REM Accesses the array with a loop because “!myArray[%index%]!” The syntax doesn't work here.
 				For /L %%u in (!count!,1,!count!) Do (
 					>>InitVoxArrays.tpa echo OUTER_SET ~Positions!index!~ = !positionsListBGEE[%%u]!
-					REM Set /a index+=1
 				)
 			)
 			Set /a count+=1
@@ -385,18 +383,16 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 			
 			if /i "%%g"=="!sfname:~-6,-5!" (
 				
-				REM Accessing the array with loop, because "!full_names[%idx_counter%]!" doesn't work here.
+				REM Accesses the array with a loop because “!myArray[%index%]!” The syntax doesn't work here.
 				For /L %%u in (!count!,1,!count!) Do (
 					>>InitVoxArrays.tpa echo OUTER_SET ~Positions!index!~ = !positionsListBGIIEE[%%u]!
-					REM Set /a index+=1
 				)
 				
 			) else if /i "%%g"=="!sfname:~-7,-5!" (
 				
-				REM Accessing the array with loop, because "!full_names[%idx_counter%]!" doesn't work here.
+				REM Accesses the array with a loop because “!myArray[%index%]!” The syntax doesn't work here.
 				For /L %%u in (!count!,1,!count!) Do (
 					>>InitVoxArrays.tpa echo OUTER_SET ~Positions!index!~ = !positionsListBGIIEE[%%u]!
-					REM Set /a index+=1
 				)
 			)
 			Set /a count+=1
@@ -420,9 +416,9 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 	for /F "tokens=2 delims==" %%n in ('Set soundsetFiles[') do ( 
 		Set /a slotNumbers+=1 
 	)	
-	REM --------------------------------------------
-	REM Create init-file and fill it with WeiDU code
-	REM --------------------------------------------
+	REM ---------------------------------------------
+	REM Creates init-file and fill it with WeiDU code
+	REM ---------------------------------------------
 	Copy NUL "InitAllSlotNumbers.tpa"
 	REM ---------------------------
 	REM INITIALIZE ALL SLOT-NUMBERS
@@ -432,21 +428,19 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 	>>InitAllSlotNumbers.tpa echo OUTER_SET nameNumbers = !nameNumbers!
 	
 
-	REM ----------------------------
-	REM Redistribute all sound files
-	REM ----------------------------
+	REM -----------------------------
+	REM Redistributes all sound files
+	REM -----------------------------
 	cd "%VOX_FOLDER%\%%l"
 	REM https://ss64.com/nt/move.html; https://ss64.com/nt/if.html
 	REM https://stackoverflow.com/questions/26391925/in-a-batch-file-how-do-you-verify-part-of-a-filename-matches-a-given-string
 	for /F "tokens=2 delims==" %%w in ('Set soundsetFiles[') do ( 
 				
-		rem echo "^%%~w"
 		set file="^%%~w"
 		set flag=^%%~w
-		rem echo !file:~-5!
 		
 		REM Checks the last 5 characters found in file. 
-		REM Sound file names with "_" as postfix will be moved in wav folder, else in sound folder. 
+		REM Sound file names with "_" as postfix will be moved in wav-folder, else in sound-folder. 
 		if /i "!flag:~-5!"=="_.wav" (
 			move /Y ".\!file!" ".\wav\"
 		) else (
@@ -454,9 +448,11 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 		)
 		
 	)
-	endlocal
-		
+
 	REM Deletes every content of variables within this loop iteration
-)
+	endlocal
+	
+) 
+REM End of main loop
 
 PAUSE

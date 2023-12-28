@@ -1,5 +1,8 @@
 // Never Forget: Comments can "lie", but code not so much ;P
-// ---GET CURRENT MAX STRREF
+// CHECK EXISTING ENTRIES IN DIALOG.TLK
+// ------------------------------------
+
+// ---GETS CURRENT MAX STRREF
 LAF HIGHEST_STR_REF_BY_COUNTING 
 	RET 
 		highestStrref = strRef 
@@ -7,15 +10,14 @@ END
 // MONITORING
 PRINT ~tlkCheck.tpa -> highestStrref: %highestStrref%~
 
-
-// ---CHECK DIALOG.TLK
+// ---CHECKS DIALOG.TLK
 //TODO: start_strref depends on game!
 // tlk loop variables
 OUTER_SET specialCondition 	= 0
 OUTER_SET conditionalIndex 	= 0
-// OUTER_SET startStrref 		= 103580 // BG2EE
-//OUTER_SET startStrref 		= 71400 // SOD
-OUTER_SET startStrref 		= 41280 // IWDEE
+//OUTER_SET startStrref 		= 103580 // BG2EE
+OUTER_SET startStrref 		= 71400 // SOD
+//OUTER_SET startStrref 		= 41280 // IWDEE
 OUTER_SET strref 			= startStrref
 
 ALTER_TLK_RANGE startStrref highestStrref BEGIN
