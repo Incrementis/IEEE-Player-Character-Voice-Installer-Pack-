@@ -49,7 +49,7 @@ BEGIN ~Vox Demo BG:EE~
 // ---------------------------------------------------------------------------------------
 INCLUDE ~%MOD_FOLDER%/arrays/DeclareVoxArrays.tpa~
 INCLUDE ~%MOD_FOLDER%/proprietary/CheckArrays.tpa~
-//INCLUDE ~%MOD_FOLDER%/proprietary/CheckTlk.tpa~
+INCLUDE ~%MOD_FOLDER%/proprietary/CheckTlk.tpa~
 
 
 // VOX-SOUND-FILES FOR PLAYER CHARACTER
@@ -104,7 +104,6 @@ END
  
  
 // TODO: DELETE IT
-/*
 OUTER_FOR(index = 0; VARIABLE_IS_SET $~%refSoundArray%~(~%index%~); ++index) 
 BEGIN
 		
@@ -114,7 +113,7 @@ BEGIN
 	OUTER_SET 			test4 = $~%voxPositionArray%~(~%index%~)
 	PRINT ~text:%test0%, sound:%test1%: strref:%test3% in Position: %test4%~
 END
-*/
+
 
 
 
@@ -212,6 +211,21 @@ LAM DYN_ARRAY_SET_VALUES
 // TODO: Delete it!
 OUTER_SPRINT sound $~%refSoundArray%~(0)
 PRINT ~sound after after: %sound%~
+
+
+// WRITE INTO M_cdsnd.lua
+// ----------------------
+// Fills the Lua file with the alternative name of the sound slot, 
+// which will then appear in the character creation menu
+OUTER_FOR(index = 0; index < nameNumbers; ++index)
+BEGIN
+	OUTER_SPRINT selectName 	$~%voxSelectNameArray%~(~%index%~)
+	OUTER_SPRINT name 			$~%voxNameArray%~(~%index%~)
+	OUTER_SET selectNameStrref 	= RESOLVE_STR_REF(~%selectName%~)
+	// Check out ingame BGEE.lua file for more information.
+	// filenames_stringrefs['Sound slot header name from CHARSND.2DA'] = {strref for alternative text display, 2}
+	APPEND ~M_cdsnd.lua~ ~filenames_stringrefs['%name%'] = {%selectNameStrref%, 2}~
+END
 
 // FOOTER INCLUDES
 // ---------------
