@@ -1,6 +1,6 @@
 // Never Forget: Comments can "lie", but code not so much ;P
-// CHECKS ARRAYS BEFORE
-// -------------------
+// ARRAYS CONSISTENCY
+// ------------------
 // Init flag for checking
 OUTER_SET failed = 0
 // Takes name from array and compares it with the other names

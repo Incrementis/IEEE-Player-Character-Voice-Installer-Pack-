@@ -1,8 +1,4 @@
 // Never Forget: Comments can "lie", but code not so much ;P
-// ---ARRAY SPECIFIC VARIABLES
-// TODO: Delete it when inlcudes work!
-// OUTER_SET slotNumbers = 0
-// OUTER_SET nameNumbers = 2
 // ---INITILIZE DYN ARRAY NUMBER OF VALUES
 INCLUDE ~%MOD_FOLDER%/%LANGUAGE%/InitAllSlotNumbers.tpa~
 // TODO: DELETE IT

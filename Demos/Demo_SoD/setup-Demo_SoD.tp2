@@ -4,7 +4,7 @@
 // -----------
 BACKUP ~./weidu_external/demo/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR ~Incrementis (incrementis@gmail.com)~
-VERSION ~v0.24.16~
+VERSION ~v0.24.17~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -117,56 +117,101 @@ END
 */
 
 
-// TODO: EXPLAIN CONCEPT, BECUASE IT IS TOO COMPLEX!!!!
-// WRITE INTO CHARSND.2DA
-// ----------------------
-// Initializes the first vox soundslot with -1 as default reference values
-OUTER_SPRINT initName $~%voxNameArray%~(0)
-APPEND_COL ~CHARSND.2da~ "$ $ %initName% -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1"
-COPY_EXISTING "CHARSND.2da" "override/CHARSND.2da"
-PRETTY_PRINT_2DA
-// Initializes current number of columns in CHARSND.2DA ?????WHY????
-COUNT_2DA_COLS maxCols2DA
-OUTER_SET maxCols = maxCols2DA - 1 
-// TODO: Delete
-//PRINT ~%maxCols%~
+
 
 // Index for the names array
 //OUTER_SET nameIndex = 0
-OUTER_FOR(index = 0; VARIABLE_IS_SET $~%TLKindexArray%~(~%index%~); ++index) 
+OUTER_FOR(index = 0; index < nameNumbers; ++index) 
 BEGIN
-	// Array values
-	//OUTER_SPRINT 	name 			$~%voxNameArray%~(~%nameIndex%~)
-	OUTER_SPRINT 	sound 			$~%refSoundArray%~(~%index%~)
-	OUTER_SET 		position 		= $~%voxPositionArray%~(~%index%~)
-	OUTER_SET  		reference 		= $~%TLKindexArray%~(~%index%~)
-	
+	// TODO: EXPLAIN CONCEPT, BECUASE IT IS TOO COMPLEX!!!!
+	// WRITE INTO CHARSND.2DA
+	// ----------------------
+	// Initializes vox soundslot with -1 as default reference values
+	OUTER_SPRINT initName $~%voxNameArray%~(~%index%~)
+	APPEND_COL ~CHARSND.2da~ "$ $ %initName% -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1"
+	COPY_EXISTING "CHARSND.2da" "override/CHARSND.2da"
+	PRETTY_PRINT_2DA
+
+	// Initializes current number of columns in CHARSND.2DA ?????WHY????
+	COUNT_2DA_COLS maxCols2DA
+	OUTER_SET maxCols = maxCols2DA - 1 
 
 	// Finds the correct index for vox name
-	OUTER_FOR(vox = 0; vox < nameNumbers; ++vox)
-	BEGIN
-		OUTER_SPRINT name $~%voxNameArray%~(~%vox%~)
-		// Variables for length of array element
+	OUTER_FOR(voxIndex = 0; voxIndex < slotNumbers; ++voxIndex)
+	BEGIN	
+		// Values	
+		OUTER_SPRINT 	sound 			$~%refSoundArray%~(~%voxIndex%~)
+		OUTER_SET 		position 		= $~%voxPositionArray%~(~%voxIndex%~)
+		OUTER_SET  		reference 		= $~%TLKindexArray%~(~%voxIndex%~)
+		// Length
 		OUTER_SET 		soundLength 	= STRING_LENGTH ~%sound%~
-		OUTER_SET 		nameLength		= STRING_LENGTH ~%name%~
+		OUTER_SET 		nameLength		= STRING_LENGTH ~%initName%~
 		OUTER_SET 		minNameLength 	= nameLength + 1
 		OUTER_SET 		maxNameLength 	= nameLength + 2
 
-		// CHECK function SUBSTRING in WeiDU!!!!
-		LAF SUBSTRING 
-			INT_VAR
-				start=0
-				length=nameLength
-			STR_VAR
-				string=~%name%~
-			RET
-				slicedName=substring
-		END
-	END
+		PRINT ~ slotNumbers:%slotNumbers% soundLength:%soundLength% nameLength:%nameLength% minNameLength:%minNameLength% maxNameLength:%maxNameLength%~
 
-	PRINT ~slicedName:%slicedName%~
-END
+		// Checks range of name length and if it is not already used for another vox name
+		ACTION_IF ( (soundLength >= minNameLength) AND
+					(soundLength <= maxNameLength) AND
+					NOT (~%sound%~ STRING_EQUAL ~!_NULL~)) THEN
+		BEGIN	
 
+			// WeiDU intern function
+			LAF SUBSTRING 
+				INT_VAR
+					start=0				// Begins from the first letter
+					length=nameLength	// Tells how many letters are read
+				STR_VAR
+					string=~%sound%~	// The string which will taken the substring from
+				RET
+					slicedName=substring
+			END
+
+			// TODO: Delete it!
+			OUTER_SET compare = ~%slicedName%~ STRING_EQUAL ~%initName%~
+			PRINT ~1.IF: sound:%sound%  voxIndex:%voxIndex%  slicedName:%slicedName%  name:%initName% compare:%compare%~
+
+			// Checks if the sound name belongs to the vox name
+			ACTION_IF (~%slicedName%~ STRING_EQUAL ~%initName%~) THEN
+			BEGIN
+				// TODO: Delete it!
+				OUTER_SET compare = ~%slicedName%~ STRING_EQUAL ~%initName%~
+				PRINT ~2.IF: sound:%sound%  voxIndex:%voxIndex%  slicedName:%slicedName%  name:%initName% compare:%compare%~
+
+				// Writes the string reference into the correct position
+				COPY_EXISTING ~CHARSND.2da~ "override/CHARSND.2da"
+				// "row"---"column"---"required column count"---"value entry"
+				SET_2DA_ENTRY ~%position%~ ~%maxCols%~ ~%maxCols%~ ~%reference%~
+				PRETTY_PRINT_2DA
+
+				// TODO: Delete it!
+				PRINT ~sound before: %sound%~
+				OUTER_SET 		~!_position~ 	= voxIndex
+				OUTER_SET 		~!_maxSlots~ 	= slotNumbers
+				OUTER_SET		~!_collected~	= 0
+				OUTER_SPRINT 	~!_useArrayName~ ~%refSoundArray%~
+				OUTER_SPRINT 	~!_arrayValue~	 ~!_NULL~
+				LAM DYN_ARRAY_SET_VALUES
+				//TODO: Delete it!
+				OUTER_SPRINT sound $~%refSoundArray%~(~%voxIndex%~)
+				PRINT ~sound after: %sound%~
+				PRINT ~slicedName:%slicedName%~
+
+			END // End of inner ACTION_IF
+		END // End of outer ACTION_IF
+	END // End of inner loop
+END // End of outer loop
+// All array values are collected
+OUTER_SET 		~!_position~ 	= voxIndex - 1
+OUTER_SET 		~!_maxSlots~ 	= slotNumbers
+OUTER_SET		~!_collected~	= 1
+OUTER_SPRINT 	~!_useArrayName~ ~%refSoundArray%~
+OUTER_SPRINT 	~!_arrayValue~	 ~!_NULL~
+LAM DYN_ARRAY_SET_VALUES
+// TODO: Delete it!
+OUTER_SPRINT sound $~%refSoundArray%~(0)
+PRINT ~sound after after: %sound%~
 
 // FOOTER INCLUDES
 // ---------------
