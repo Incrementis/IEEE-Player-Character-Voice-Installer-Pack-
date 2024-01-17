@@ -1,48 +1,48 @@
 // ---INITIALIZE DYN ARRAY TEXTS
-OUTER_SPRINT ~Texts0~ ~TODO~ //"!_DEMB0_.wav" Aktionsbestätigung 4 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 1
-OUTER_SPRINT ~Texts1~ ~TODO~ //"!_DEMBf.wav" Ausgewählt 1
-OUTER_SPRINT ~Texts2~ ~TODO~ //"!_DEMO0.wav" Ausgewählt 4
-OUTER_SPRINT ~Texts3~ ~TODO~ //"!_DEMO0_.wav" Aktionsbestätigung 4 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 1
-OUTER_SPRINT ~Texts4~ ~TODO~ //"!_DEMO1.wav" Kritischer Fehlschlag
-OUTER_SPRINT ~Texts5~ ~TODO~ //"!_DEMO1_.wav" Aktionsbestätigung 5 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 2
-OUTER_SPRINT ~Texts6~ ~TODO~ //"!_DEMO2.wav" Ziel ist immun
-OUTER_SPRINT ~Texts7~ ~TODO~ //"!_DEMO2_.wav" Aktionsbestätigung 6 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 3
-OUTER_SPRINT ~Texts8~ ~TODO~ //"!_DEMO3.wav" Inventar voll
-OUTER_SPRINT ~Texts9~ ~TODO~ //"!_DEMO3_.wav" Aktionsbestätigung 7 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 4
-OUTER_SPRINT ~Texts10~ ~TODO~ //"!_DEMO4.wav" Taschendiebstahl
-OUTER_SPRINT ~Texts11~ ~TODO~ //"!_DEMO5.wav" Versteckt im Schaten
-OUTER_SPRINT ~Texts12~ ~TODO~ //"!_DEMO6.wav" Zauber unterbrochen
-OUTER_SPRINT ~Texts13~ ~TODO~ //"!_DEMO7.wav" Falle stellen
-OUTER_SPRINT ~Texts14~ ~TODO~ //"!_DEMO8.wav" Schlachtruf 2
-OUTER_SPRINT ~Texts15~ ~TODO~ //"!_DEMO9.wav" Schlachtruf 3
-OUTER_SPRINT ~Texts16~ ~TODO~ //"!_DEMOa.wav" Schlachtruf 1
-OUTER_SPRINT ~Texts17~ ~TODO~ //"!_DEMOb.wav" Anführer werden
-OUTER_SPRINT ~Texts18~ ~TODO~ //"!_DEMOc.wav" Müde
-OUTER_SPRINT ~Texts19~ ~TODO~ //"!_DEMOd.wav" Gelangweilt
-OUTER_SPRINT ~Texts20~ ~TODO~ //"!_DEMOe.wav" Schwer verwundet
-OUTER_SPRINT ~Texts21~ ~TODO~ //"!_DEMOf.wav" Ausgewählt 1
-OUTER_SPRINT ~Texts22~ ~TODO~ //"!_DEMOg.wav" Ausgewählt 2
-OUTER_SPRINT ~Texts23~ ~TODO~ //"!_DEMOg_.wav" Schlachtruf 4
-OUTER_SPRINT ~Texts24~ ~TODO~ //"!_DEMOh.wav" Ausgewählt 3
-OUTER_SPRINT ~Texts25~ ~TODO~ //"!_DEMOh_.wav" Schlachtruf 5
-OUTER_SPRINT ~Texts26~ ~TODO~ //"!_DEMOi.wav" Aktionsbestätigung 1
-OUTER_SPRINT ~Texts27~ ~TODO~ //"!_DEMOj.wav" Aktionsbestätigung 2
-OUTER_SPRINT ~Texts28~ ~TODO~ //"!_DEMOk.wav" Aktionsbestätigung 3
-OUTER_SPRINT ~Texts29~ ~TODO~ //"!_DEMOk_.wav" Ausgewählt 5
-OUTER_SPRINT ~Texts30~ ~TODO~ //"!_DEMOl.wav" Getroffen werden
-OUTER_SPRINT ~Texts31~ ~TODO~ //"!_DEMOl_.wav" Ausgewählt 6
-OUTER_SPRINT ~Texts32~ ~TODO~ //"!_DEMOm.wav" Sterben
-OUTER_SPRINT ~Texts33~ ~TODO~ //"!_DEMOn.wav" Im Wald
-OUTER_SPRINT ~Texts34~ ~TODO~ //"!_DEMOo.wav" In der Stadt
-OUTER_SPRINT ~Texts35~ ~TODO~ //"!_DEMOp.wav" Im Kerker
-OUTER_SPRINT ~Texts36~ ~TODO~ //"!_DEMOq.wav" Tagsüber
-OUTER_SPRINT ~Texts37~ ~TODO~ //"!_DEMOr.wav" Nachts
-OUTER_SPRINT ~Texts38~ ~TODO~ //"!_DEMOs.wav" BGEE[IWDEE] Aktionsbestätigung 4 oder Aktionsbestätigung 4 für BGEE2
-OUTER_SPRINT ~Texts39~ ~TODO~ //"!_DEMOt.wav" BGEE[IWDEE] Aktionsbestätigung 5 oder Aktionsbestätigung 5 für BGEE2
-OUTER_SPRINT ~Texts40~ ~TODO~ //"!_DEMOu.wav" BGEE[IWDEE] Aktionsbestätigung 6 oder Aktionsbestätigung 6 für BGEE2
-OUTER_SPRINT ~Texts41~ ~TODO~ //"!_DEMOv.wav" BGEE[IWDEE] Aktionsbestätigung 7 oder Aktionsbestätigung 7 für BGEE2
-OUTER_SPRINT ~Texts42~ ~TODO~ //"!_DEMOw.wav" Reaktion auf den Tod eines Gruppenmitglieds
-OUTER_SPRINT ~Texts43~ ~TODO~ //"!_DEMOz.wav" Kritischer Treffer
+OUTER_SPRINT ~Texts0~ ~Aktionsbestätigung 4~ //"!_DEMB0_.wav" Aktionsbestätigung 4 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 1
+OUTER_SPRINT ~Texts1~ ~Ausgewählt 1~ //"!_DEMBf.wav" Ausgewählt 1
+OUTER_SPRINT ~Texts2~ ~Ausgewählt 4~ //"!_DEMO0.wav" Ausgewählt 4
+OUTER_SPRINT ~Texts3~ ~Aktionsbestätigung 4~ //"!_DEMO0_.wav" Aktionsbestätigung 4 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 1
+OUTER_SPRINT ~Texts4~ ~Kritischer Fehlschlag~ //"!_DEMO1.wav" Kritischer Fehlschlag
+OUTER_SPRINT ~Texts5~ ~Aktionsbestätigung 5~ //"!_DEMO1_.wav" Aktionsbestätigung 5 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 2
+OUTER_SPRINT ~Texts6~ ~Ziel ist immun~ //"!_DEMO2.wav" Ziel ist immun
+OUTER_SPRINT ~Texts7~ ~Aktionsbestätigung 6~ //"!_DEMO2_.wav" Aktionsbestätigung 6 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 3
+OUTER_SPRINT ~Texts8~ ~Inventar voll~ //"!_DEMO3.wav" Inventar voll
+OUTER_SPRINT ~Texts9~ ~Aktionsbestätigung 7~ //"!_DEMO3_.wav" Aktionsbestätigung 7 für SoD/BGEE ansonsten BGEE2 Aktionsbestätigung selten 4
+OUTER_SPRINT ~Texts10~ ~Taschendiebstahl~ //"!_DEMO4.wav" Taschendiebstahl
+OUTER_SPRINT ~Texts11~ ~Versteckt im Schaten~ //"!_DEMO5.wav" Versteckt im Schaten
+OUTER_SPRINT ~Texts12~ ~Zauber unterbrochen~ //"!_DEMO6.wav" Zauber unterbrochen
+OUTER_SPRINT ~Texts13~ ~Falle stellen~ //"!_DEMO7.wav" Falle stellen
+OUTER_SPRINT ~Texts14~ ~Schlachtruf 2~ //"!_DEMO8.wav" Schlachtruf 2
+OUTER_SPRINT ~Texts15~ ~Schlachtruf 3~ //"!_DEMO9.wav" Schlachtruf 3
+OUTER_SPRINT ~Texts16~ ~Schlachtruf 1~ //"!_DEMOa.wav" Schlachtruf 1
+OUTER_SPRINT ~Texts17~ ~Anführer werden~ //"!_DEMOb.wav" Anführer werden
+OUTER_SPRINT ~Texts18~ ~Müde~ //"!_DEMOc.wav" Müde
+OUTER_SPRINT ~Texts19~ ~Gelangweilt~ //"!_DEMOd.wav" Gelangweilt
+OUTER_SPRINT ~Texts20~ ~Schwer verwundet~ //"!_DEMOe.wav" Schwer verwundet
+OUTER_SPRINT ~Texts21~ ~Ausgewählt 1~ //"!_DEMOf.wav" Ausgewählt 1
+OUTER_SPRINT ~Texts22~ ~Ausgewählt 2~ //"!_DEMOg.wav" Ausgewählt 2
+OUTER_SPRINT ~Texts23~ ~Schlachtruf 4~ //"!_DEMOg_.wav" Schlachtruf 4
+OUTER_SPRINT ~Texts24~ ~Ausgewählt 3~ //"!_DEMOh.wav" Ausgewählt 3
+OUTER_SPRINT ~Texts25~ ~Schlachtruf 5~ //"!_DEMOh_.wav" Schlachtruf 5
+OUTER_SPRINT ~Texts26~ ~Aktionsbestätigung 1~ //"!_DEMOi.wav" Aktionsbestätigung 1
+OUTER_SPRINT ~Texts27~ ~Aktionsbestätigung 2~ //"!_DEMOj.wav" Aktionsbestätigung 2
+OUTER_SPRINT ~Texts28~ ~Aktionsbestätigung 3~ //"!_DEMOk.wav" Aktionsbestätigung 3
+OUTER_SPRINT ~Texts29~ ~Ausgewählt 5~ //"!_DEMOk_.wav" Ausgewählt 5
+OUTER_SPRINT ~Texts30~ ~Getroffen werden~ //"!_DEMOl.wav" Getroffen werden
+OUTER_SPRINT ~Texts31~ ~Ausgewählt 6~ //"!_DEMOl_.wav" Ausgewählt 6
+OUTER_SPRINT ~Texts32~ ~Sterben~ //"!_DEMOm.wav" Sterben
+OUTER_SPRINT ~Texts33~ ~Im Wald~ //"!_DEMOn.wav" Im Wald
+OUTER_SPRINT ~Texts34~ ~In der Stadt~ //"!_DEMOo.wav" In der Stadt
+OUTER_SPRINT ~Texts35~ ~Im Kerker~ //"!_DEMOp.wav" Im Kerker
+OUTER_SPRINT ~Texts36~ ~Tagsüber~ //"!_DEMOq.wav" Tagsüber
+OUTER_SPRINT ~Texts37~ ~Nachts~ //"!_DEMOr.wav" Nachts
+OUTER_SPRINT ~Texts38~ ~BGEE[IWDEE] Aktionsbestätigung 4~ //"!_DEMOs.wav" BGEE[IWDEE] Aktionsbestätigung 4 oder Aktionsbestätigung 4 für BGEE2
+OUTER_SPRINT ~Texts39~ ~BGEE[IWDEE] Aktionsbestätigung 5~ //"!_DEMOt.wav" BGEE[IWDEE] Aktionsbestätigung 5 oder Aktionsbestätigung 5 für BGEE2
+OUTER_SPRINT ~Texts40~ ~BGEE[IWDEE] Aktionsbestätigung 6~ //"!_DEMOu.wav" BGEE[IWDEE] Aktionsbestätigung 6 oder Aktionsbestätigung 6 für BGEE2
+OUTER_SPRINT ~Texts41~ ~BGEE[IWDEE] Aktionsbestätigung 7~ //"!_DEMOv.wav" BGEE[IWDEE] Aktionsbestätigung 7 oder Aktionsbestätigung 7 für BGEE2
+OUTER_SPRINT ~Texts42~ ~Reaktion auf den Tod eines Gruppenmitglieds~ //"!_DEMOw.wav" Reaktion auf den Tod eines Gruppenmitglieds
+OUTER_SPRINT ~Texts43~ ~Kritischer Treffer~ //"!_DEMOz.wav" Kritischer Treffer
 LAM ~!_Texts~
 // ---INITIALIZE DYN ARRAY NAMES
 OUTER_SPRINT ~VoxNames0~ ~!_DEMO~

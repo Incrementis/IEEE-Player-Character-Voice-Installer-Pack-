@@ -37,12 +37,12 @@ OUTER_SPRINT ~Texts34~ ~In City~ //"!_DEMOo.wav" In City
 OUTER_SPRINT ~Texts35~ ~In Dungeon~ //"!_DEMOp.wav" In Dungeon
 OUTER_SPRINT ~Texts36~ ~Daytime~ //"!_DEMOq.wav" Daytime
 OUTER_SPRINT ~Texts37~ ~Nighttime~ //"!_DEMOr.wav" Nighttime
-OUTER_SPRINT ~Texts38~ ~Action Acknowledgement 4~ //"!_DEMOs.wav" BGEE[IWDEE] Action Acknowledgement 4 or Action Acknowledgement 4 for BGEE2
-OUTER_SPRINT ~Texts39~ ~Action Acknowledgement 5~ //"!_DEMOt.wav" BGEE[IWDEE] Action Acknowledgement 5 or Action Acknowledgement 5 for BGEE2
-OUTER_SPRINT ~Texts40~ ~Action Acknowledgement 6~ //"!_DEMOu.wav" BGEE[IWDEE] Action Acknowledgement 6 or Action Acknowledgement 6 for BGEE2
-OUTER_SPRINT ~Texts41~ ~Action Acknowledgement 7~ //"!_DEMOv.wav" BGEE[IWDEE] Action Acknowledgement 7 or Action Acknowledgement 7 for BGEE2
+OUTER_SPRINT ~Texts38~ ~BGEE[IWDEE] Action Acknowledgement 4~ //"!_DEMOs.wav" BGEE[IWDEE] Action Acknowledgement 4 or Action Acknowledgement 4 for BGEE2
+OUTER_SPRINT ~Texts39~ ~BGEE[IWDEE] Action Acknowledgement 5~ //"!_DEMOt.wav" BGEE[IWDEE] Action Acknowledgement 5 or Action Acknowledgement 5 for BGEE2
+OUTER_SPRINT ~Texts40~ ~BGEE[IWDEE] Action Acknowledgement 6~ //"!_DEMOu.wav" BGEE[IWDEE] Action Acknowledgement 6 or Action Acknowledgement 6 for BGEE2
+OUTER_SPRINT ~Texts41~ ~BGEE[IWDEE] Action Acknowledgement 7~ //"!_DEMOv.wav" BGEE[IWDEE] Action Acknowledgement 7 or Action Acknowledgement 7 for BGEE2
 OUTER_SPRINT ~Texts42~ ~Reaction to Party Member Death~ //"!_DEMOw.wav" Reaction to Party Member Death
-OUTER_SPRINT ~Texts43~ ~Critical Hit~ //"!_DEMOz.wav" Critical Hit
+OUTER_SPRINT ~Texts43~ ~Critical~ //"!_DEMOz.wav" Critical Hit
 LAM ~!_Texts~
 // ---INITIALIZE DYN ARRAY NAMES
 OUTER_SPRINT ~VoxNames0~ ~!_DEMO~
@@ -146,9 +146,6 @@ OUTER_SET ~Positions41~ = 82
 OUTER_SET ~Positions42~ = 53
 OUTER_SET ~Positions43~ = 65
 LAM ~!_Positions~
-
-// TODO: delete it!
-PRINT ~Game is bgee/sod~
 END
 // ---INITIALIZE DYN ARRAY POSITIONS
 ACTION_IF (GAME_IS ~bg2ee~) THEN 
@@ -198,7 +195,4 @@ OUTER_SET ~Positions41~ = 38
 OUTER_SET ~Positions42~ = 53
 OUTER_SET ~Positions43~ = 65
 LAM ~!_Positions~
-
-// TODO: Delete it!
-PRINT ~Game is BG2EE~
 END

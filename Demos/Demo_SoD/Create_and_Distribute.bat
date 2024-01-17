@@ -261,9 +261,9 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 	Set soundsetFiles
 	Set /a countedFiles-=1
 
-	REM ------------------------------------------------------------
-	REM Changes path to create init-file and fill it with WeiDU code
-	REM ------------------------------------------------------------
+	REM -----------------------------------------------------------
+	REM Changes path to create init-file to fill it with WeiDU code
+	REM -----------------------------------------------------------
 	cd "%MOD_FOLDER%\%%l"
 	Copy NUL "InitVoxArrays.tpa"
 	REM --------------------------
@@ -416,9 +416,9 @@ for /F "tokens=2 delims==" %%l in ('Set languages[') do (
 	for /F "tokens=2 delims==" %%n in ('Set soundsetFiles[') do ( 
 		Set /a slotNumbers+=1 
 	)	
-	REM ---------------------------------------------
-	REM Creates init-file and fill it with WeiDU code
-	REM ---------------------------------------------
+	REM --------------------------------------------
+	REM Creates init-file to fill it with WeiDU code
+	REM --------------------------------------------
 	Copy NUL "InitAllSlotNumbers.tpa"
 	REM ---------------------------
 	REM INITIALIZE ALL SLOT-NUMBERS

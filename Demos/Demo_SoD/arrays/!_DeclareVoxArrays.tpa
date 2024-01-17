@@ -1,10 +1,6 @@
 // Never Forget: Comments can "lie", but code not so much ;P
 // ---INITILIZE DYN ARRAY NUMBER OF VALUES
 INCLUDE ~%MOD_FOLDER%/%LANGUAGE%/InitAllSlotNumbers.tpa~
-// TODO: DELETE IT
-PRINT ~InitAllSlotNumbers.tpa -> %LANGUAGE%~
-PRINT ~slotNumbers-> %slotNumbers%~
-PRINT ~nameNumbers-> %nameNumbers%~
 
 OUTER_SPRINT refTextArray 		~Texts~
 OUTER_SPRINT refSoundArray 		~Sounds~
@@ -38,5 +34,3 @@ OUTER_SPRINT 	~!_setArrayName~	~%voxSelectNameArray%~
 LAM DYN_ARRAY_CREATE
 // ---INITILIZE DYN ARRAY VALUES
 INCLUDE ~%MOD_FOLDER%/%LANGUAGE%/InitVoxArrays.tpa~
-	// TODO: DELETE IT!
-PRINT ~DeclareVoxArrays.tpa -> %LANGUAGE%~
