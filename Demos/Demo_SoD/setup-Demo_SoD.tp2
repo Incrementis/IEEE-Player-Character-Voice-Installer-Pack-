@@ -2,9 +2,9 @@
 // -----------
 // Information
 // -----------
-BACKUP ~./weidu_external/demo/backup~ // %MOD_FOLDER% doesn't work here
+BACKUP ~weidu_external/demo_sod/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR ~Incrementis (incrementis@gmail.com)~
-VERSION ~v0.27.21~
+VERSION ~v0.29.22~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -24,14 +24,14 @@ ALWAYS
 	// ----------------------------------
 	INCLUDE ~%MOD_FOLDER%/arrays/!_DeclareVoxArrays.tpa~
 	
-	// EE SOUNDSET COMPATIBILITY FILE(Don't touch these)
-	// -------------------------------------------------
+	// EE SOUNDSET COMPATIBILITY FILE(Don't touch this)
+	// ------------------------------------------------
 	ACTION_IF NOT FILE_EXISTS_IN_GAME ~M_cdsnd.lua~ THEN
 	BEGIN
 		OUTER_SPRINT ~!_filename~ ~weidu_external/%MOD_FOLDER%/temp/M_cdsnd.lua~
 		LAM CREATE_FILE
 		// This file is used to enter strref text references which will then be displayed on the terminal.
-		COPY ~./weidu_external/%MOD_FOLDER%/temp/M_cdsnd.lua~ ~override~
+		COPY ~weidu_external/%MOD_FOLDER%/temp/M_cdsnd.lua~ ~override~
 	END
 
 END// End of "ALWAYS"
@@ -45,29 +45,43 @@ LANGUAGE
 	~en_US~		// Directory
 	~%MOD_FOLDER%/en_US/!_errors.tra~
 	~%MOD_FOLDER%/en_US/!_warnings.tra~
+	~%MOD_FOLDER%/en_US/!_moduleNames.tra~
 LANGUAGE
 	~Deutsch~	
 	~de_DE~
 	~%MOD_FOLDER%/de_DE/!_errors.tra~
 	~%MOD_FOLDER%/de_DE/!_warnings.tra~
+	~%MOD_FOLDER%/de_DE/!_moduleNames.tra~
 
 
-// ---------------------------------------------------
-// Install "IEEE Player Character Voice Installer" Mod
-// ---------------------------------------------------
-BEGIN ~Vox Demo BG:EE~
+// ----------------------------------------------------
+// Installs "IEEE Player Character Voice Installer" Mod
+// ----------------------------------------------------
+BEGIN @1
 // PROPRIETARY INCLUDES(Can be commented out but not recommended)
 // --------------------------------------------------------------
 INCLUDE ~%MOD_FOLDER%/proprietary/errors/!_CheckIEgames.tpa~
 INCLUDE ~%MOD_FOLDER%/proprietary/!_CheckArrays.tpa~
-INCLUDE ~%MOD_FOLDER%/proprietary/!_CheckTlk.tpa~
-
+// This proprietary include depends on the user
+OUTER_WHILE NOT (~%repair%~ STRING_EQUAL_CASE ~n~ OR ~%repair%~ STRING_EQUAL_CASE ~o~) 
+BEGIN
+	// Retrieves a specific language string from !_moduleNames.tra
+	OUTER_SPRINT applyUtility @2 
+	// Asks whether to use the repair utility
+	PRINT ~%applyUtility%?~
+	// Gets the user input value
+	ACTION_READLN ~repair~
+	// Contains a repair code file in case the user wishes to use it
+	ACTION_IF (~%repair%~ STRING_EQUAL_CASE ~o~) THEN
+	BEGIN
+		INCLUDE ~%MOD_FOLDER%/proprietary/!_CheckTlk.tpa~
+	END
+END
 
 // VOICE-SOUND-FILES FOR PLAYER CHARACTER
 // --------------------------------------
 COPY ~%MOD_FOLDER%/vox/%LANGUAGE%/sound~ 	~lang/%LANGUAGE%/sounds~
 COPY ~%MOD_FOLDER%/vox/%LANGUAGE%/wav~ 		~override~
-
 
 // WRITES INTO DIALOG.TLK
 // ----------------------
@@ -113,7 +127,6 @@ BEGIN
 	OUTER_SET 		~!_arrayValue~	= stringref
 	LAM DYN_ARRAY_SET_VALUES
 END
-
 
 // WRITES INTO CHARSND.2da
 // -----------------------
@@ -166,7 +179,7 @@ BEGIN
 			ACTION_IF (~%slicedName%~ STRING_EQUAL ~%initName%~) THEN
 			BEGIN
 				// MONITORING
-				PRINT ~setup-Demo_SoD.tp2 -> BELONGS TO VOX NAME -> sound:%sound%  voxIndex:%voxIndex%  slicedName:%slicedName%  name:%initName%~
+				PRINT ~setup-Demo_SoD.tp2 -> BELONGS TO VOX NAME -> reference:%reference% sound:%sound%  voxIndex:%voxIndex%  slicedName:%slicedName%  name:%initName%~
 
 				// Writes the string reference to the correct position
 				COPY_EXISTING ~CHARSND.2da~ "override/CHARSND.2da"
@@ -194,7 +207,6 @@ OUTER_SPRINT 	~!_useArrayName~ ~%refSoundArray%~
 OUTER_SPRINT 	~!_arrayValue~	 ~!_NULL~
 LAM DYN_ARRAY_SET_VALUES
 
-
 // WRITES INTO M_cdsnd.lua
 // -----------------------
 // Fills the Lua file with the alternative name of the sound slot,
@@ -205,12 +217,12 @@ BEGIN
 	OUTER_SPRINT name 			$~%voxNameArray%~(~%luaIndex%~)
 	OUTER_SET selectNameStrref 	= RESOLVE_STR_REF(~%selectName%~)
 	// NOTE: You can check out ingame BGEE.lua file for more information.
-	// Search for: filenames_stringrefs['Sound slot header name from CHARSND.2DA'] = {strref for alternative text display, 2}
+	// Search for: filenames_stringrefs['<Sound slot header name from CHARSND.2DA>'] = {<strref for alternative text display>, 2}
 	APPEND ~M_cdsnd.lua~ ~filenames_stringrefs['%name%'] = {%selectNameStrref%, 2}~
 END
 
 
-// FOOTER INCLUDES
-// ---------------
+// FOOTER INCLUDES(Order matters!)
+// -------------------------------
 INCLUDE ~%MOD_FOLDER%/proprietary/warnings/!_CheckSOD.tpa~
 INCLUDE ~%MOD_FOLDER%/proprietary/!_Cleanup.tpa~

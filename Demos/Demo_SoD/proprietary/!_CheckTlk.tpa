@@ -82,11 +82,25 @@ ALTER_TLK_RANGE startStrref highestStrref BEGIN
 						NOT (~%refText%~ STRING_EQUAL ~%arrText%~) AND 
 						NOT (~%arrText%~ STRING_EQUAL ~!_NULL~) THEN
 		BEGIN
+			
+			//NOTE: BETA TEST CODE LINES -> use them to test the results outside or inside of this TLK loop!!!
 			// Replaces referenced text in dialog.tlk with the array text
-			REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH ~%refText%~ ~%arrText%~
-			//STRING_SET ~%index%~ ~%arrText%~
-			PATCH_PRINT ~strref:%strref% index:%index% refText:%refText%  arrText:%arrText% arrSound:%arrSound%~
-
+			//REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH ~%refText%~ ~%arrText%~
+			//SPRINT a ~%refText%~
+			//SPRINT b ~%arrText%~
+			//SPRINT c ~%arrSound%~
+			//SET d = strref
+			
+			// Replaces Reference text and sound on index position in dialog.tlk
+			// NOTE: As the sound name is basiclally the same as before, giving the soundname is relevant, or esle it will be overwritten with empty space/no soundfile
+			LPF STR_SET_EVAL_WITH_STRINGS 
+			INT_VAR
+				idx = strref
+			STR_VAR
+				text 	= ~%arrText%~
+				sound	= ~%arrSound%~
+			END
+			
 			// Sets all dyn array values to !_NULL
 			SET 		~!_position~ 		= index
 			SET 		~!_maxSlots~ 		= slotNumbers
@@ -133,10 +147,30 @@ ALTER_TLK_RANGE startStrref highestStrref BEGIN
 		SET			~!_collected~ 		= 1
 		SPRINT 		~!_useArrayName~ 	~%TLKindexArray%~
 		SET 		~!_arrayValue~ 		= strref
-		LPM DYN_ARRAY_SET_VALUES
+		LPM DYN_ARRAY_SET_VALUES		
 	END
 	
 	// Next strref in dialog.tlk
 	SET strref = strref+1
 	
 END // End of "ALTER_TLK_RANGE"
+
+// TODO: DELTE IT!
+OUTER_FOR(testIndex = 0; testIndex < slotNumbers; ++testIndex) 
+BEGIN
+	OUTER_TEXT_SPRINT textTest $~%refTextArray%~(~%testIndex%~)
+	OUTER_TEXT_SPRINT refTest $~%refTextArray%~(~%testIndex%~)
+	PRINT ~textTest:%textTest% refTest:%refTest% testIndex:%testIndex%~
+END
+
+
+// HAS ONLY TESTING PURPOSE. DELETE IT IF ISSUE ON GITHUB IS FIXED!
+/*
+LAF STR_SET_EVAL_WITH_STRINGS 
+INT_VAR
+	idx = d
+STR_VAR
+	text 	= ~%b%~
+	sound	= ~%c%~
+END
+*/			
