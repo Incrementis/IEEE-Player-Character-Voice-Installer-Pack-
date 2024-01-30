@@ -13,6 +13,8 @@ OUTER_SPRINT ~!_deleteArray~ ~%voxSelectNameArray%~
 LAM DYN_ARRAY_CLEANUP
 OUTER_SPRINT ~!_deleteArray~ ~%voxPositionArray%~
 LAM DYN_ARRAY_CLEANUP
+OUTER_SPRINT ~!_deleteArray~ ~%TLKindexRepaiArray%~
+LAM DYN_ARRAY_CLEANUP
 
 // WeiDU INTERNAL CLEANUP!
 // -----------------------

@@ -1,6 +1,34 @@
 // Never Forget: Comments can "lie", but code not so much ;P
-// CHECKS EXISTING ENTRIES IN DIALOG.TLK
-// -------------------------------------
+// CHECKS AND REAPIRS EXISTING ENTRIES IN DIALOG.TLK
+// -------------------------------------------------
+
+// DECLARES REPAIR-INDEX ARRAY
+// ---------------------------
+OUTER_SPRINT 	~TLKindexRepaiArray~  ~TLKRepairIndex~
+// This array is only used in this file		
+OUTER_SET 		~!_slotNumbers~ 	= slotNumbers
+OUTER_SPRINT 	~!_setArrayName~	~%TLKindexRepaiArray%~
+LAM DYN_ARRAY_CREATE
+// INITIALIZES REPAIR-INDEX ARRAY
+// ------------------------------
+OUTER_FOR(repairIndex = 0; repairIndex < slotNumbers; ++repairIndex)
+BEGIN
+	// Filling array with null values
+	OUTER_SET 		~!_position~ 	= repairIndex
+	OUTER_SET 		~!_maxSlots~ 	= slotNumbers
+	OUTER_SET		~!_collected~	= 0
+	OUTER_SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+	OUTER_SET 		~!_arrayValue~	= "-1"
+	LAM DYN_ARRAY_SET_VALUES
+END
+// Inserting all array items into the array(All array values are collected)
+OUTER_SET 		~!_position~ 	= repairIndex - 1
+OUTER_SET 		~!_maxSlots~ 	= slotNumbers
+OUTER_SET		~!_collected~	= 1
+OUTER_SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+OUTER_SET 		~!_arrayValue~	= "-1"
+LAM DYN_ARRAY_SET_VALUES
+
 
 // RECEIVES CURRENT MAX STREF
 // --------------------------
@@ -37,7 +65,10 @@ PRINT ~tlkCheck.tpa -> startStrref: %startStrref%~
 // tlk loop variables
 OUTER_SET strref 			= startStrref
 OUTER_SET specialCondition 	= 0
-OUTER_SET conditionalIndex 	= 0
+OUTER_SET lastStrref 		= 0
+OUTER_SET lastIndex 		= 0
+OUTER_SET lastRepairStrref 	= 0
+OUTER_SET lastRepairIndex 	= 0
 ALTER_TLK_RANGE startStrref highestStrref BEGIN
 
 	// Gets sound and text from the string reference
@@ -54,26 +85,27 @@ ALTER_TLK_RANGE startStrref highestStrref BEGIN
 		PATCH_IF(~%refSound%~ STRING_EQUAL ~%arrSound%~) AND 
 				(~%refText%~ STRING_EQUAL ~%arrText%~) THEN
 		BEGIN	
-			// Sets all dyn array values to !_NULL	
-			SET 		~!_position~ 		= index
-			SET 		~!_maxSlots~ 		= slotNumbers
-			SET			~!_collected~		= 0
-			SPRINT 		~!_useArrayName~ 	~%refTextArray%~
-			SPRINT 		~!_arrayValue~		~!_NULL~
+			// Sets dyn array value to !_NULL	
+			SET 		~!_position~ 	= index
+			SET 		~!_maxSlots~ 	= slotNumbers
+			SET			~!_collected~	= 0
+			SPRINT 		~!_useArrayName~ ~%refTextArray%~
+			SPRINT 		~!_arrayValue~	 ~!_NULL~
 			LPM DYN_ARRAY_SET_VALUES
 
 			// Sets the current string reference value
-			SET 		~!_position~ 		= index
-			SET 		~!_maxSlots~ 		= slotNumbers
-			SET			~!_collected~		= 0
-			SPRINT 		~!_useArrayName~ 	~%TLKindexArray%~
-			SET 		~!_arrayValue~ 		= strref
+			SET 		~!_position~ 	= index
+			SET 		~!_maxSlots~ 	= slotNumbers
+			SET			~!_collected~	= 0
+			SPRINT 		~!_useArrayName~ ~%TLKindexArray%~
+			SET 		~!_arrayValue~ 	= strref
 			LPM DYN_ARRAY_SET_VALUES
 
 			// Sets special condition to true(1). 
 			// When the collection of array values ​​is completed, the correct index of the last iteration is saved
-			SET specialCondition = 1
-			SET conditionalIndex = index
+			SET specialCondition= 1
+			SET lastIndex 		= index
+			SET lastStrref 		= strref
 			// MONITORING				
 			PATCH_PRINT ~tlkCheck.tpa -> Reference for "%arrText%[%arrSound%]" in dialog.tlk is already exsiting on position %strref%~			
 		END 
@@ -82,71 +114,55 @@ ALTER_TLK_RANGE startStrref highestStrref BEGIN
 						NOT (~%refText%~ STRING_EQUAL ~%arrText%~) AND 
 						NOT (~%arrText%~ STRING_EQUAL ~!_NULL~) THEN
 		BEGIN
-			
-			//NOTE: BETA TEST CODE LINES -> use them to test the results outside or inside of this TLK loop!!!
-			// Replaces referenced text in dialog.tlk with the array text
-			//REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH ~%refText%~ ~%arrText%~
-			//SPRINT a ~%refText%~
-			//SPRINT b ~%arrText%~
-			//SPRINT c ~%arrSound%~
-			//SET d = strref
-			
-			// Replaces Reference text and sound on index position in dialog.tlk
-			// NOTE: As the sound name is basiclally the same as before, giving the soundname is relevant, or esle it will be overwritten with empty space/no soundfile
-			LPF STR_SET_EVAL_WITH_STRINGS 
-			INT_VAR
-				idx = strref
-			STR_VAR
-				text 	= ~%arrText%~
-				sound	= ~%arrSound%~
-			END
-			
-			// Sets all dyn array values to !_NULL
-			SET 		~!_position~ 		= index
-			SET 		~!_maxSlots~ 		= slotNumbers
-			SET			~!_collected~		= 0
-			SPRINT 		~!_useArrayName~ 	~%refTextArray%~
-			SPRINT 		~!_arrayValue~		~!_NULL~
+			// Sets current string reference value which needs repair
+			SET 	~!_position~ 	= index
+			SET 	~!_maxSlots~ 	= slotNumbers
+			SET		~!_collected~	= 0
+			SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+			SET 	~!_arrayValue~	= strref		
 			LPM DYN_ARRAY_SET_VALUES
 
 			// Sets current string reference value
-			SET 		~!_position~ 		= index
-			SET 		~!_maxSlots~ 		= slotNumbers
-			SET			~!_collected~ 		= 0
-			SPRINT 		~!_useArrayName~ 	~%TLKindexArray%~
-			SET 		~!_arrayValue~ 		= strref
+			SET 		~!_position~ 	= index
+			SET 		~!_maxSlots~ 	= slotNumbers
+			SET			~!_collected~ 	= 0
+			SPRINT 		~!_useArrayName~ ~%TLKindexArray%~
+			SET 		~!_arrayValue~ 	= strref
 			LPM DYN_ARRAY_SET_VALUES
 
 			// Sets special condition to true(1)
 			// When the collection of array values ​​is completed, the correct index of the last iteration is saved
-			SET specialCondition = 1
-			SET conditionalIndex = index
+			SET specialCondition 	= 1
+			SET lastIndex 			= index
+			SET lastStrref 			= strref
+			SET lastRepairIndex		= index
+			SET lastRepairStrref	= strref
 			// MONITORING			
 			PATCH_PRINT ~tlkCheck.tpa -> Correcting "%refText%" to "%arrText%" in dialog.tlk on position %strref%~			
 		END	
 		
 	END // End of "FOR"
-
+	
 	// Inserting all array items into the array(All array values are collected)
 	PATCH_IF(specialCondition = 1) THEN
 	BEGIN
 		// Resets flag/condition
 		SET specialCondition = 0
 
-		// Sets all dyn array values to !_NULL (Last !_NULL value)
-		SET 		~!_position~ 		= conditionalIndex
-		SET 		~!_maxSlots~ 		= slotNumbers
-		SET			~!_collected~		= 1
-		SPRINT 		~!_useArrayName~ 	~%refTextArray%~
-		SPRINT 		~!_arrayValue~		~!_NULL~
+		// Sets current repair index value (Last repair index value)
+		SET 	~!_position~ 	= lastRepairIndex
+		SET 	~!_maxSlots~ 	= slotNumbers
+		SET		~!_collected~	= 1
+		SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+		SET 	~!_arrayValue~	= lastRepairStrref		
 		LPM DYN_ARRAY_SET_VALUES
 
 		// Sets current string reference value (Last strref value)
-		SET 		~!_position~ 		= conditionalIndex
-		SET 		~!_maxSlots~ 		= slotNumbers
-		SET			~!_collected~ 		= 1
-		SPRINT 		~!_useArrayName~ 	~%TLKindexArray%~
-		SET 		~!_arrayValue~ 		= strref
+		SET 		~!_position~	= lastIndex
+		SET 		~!_maxSlots~	= slotNumbers
+		SET			~!_collected~	= 1
+		SPRINT 		~!_useArrayName~ ~%TLKindexArray%~
+		SET 		~!_arrayValue~ 	= strref
 		LPM DYN_ARRAY_SET_VALUES		
 	END
 	
@@ -155,22 +171,53 @@ ALTER_TLK_RANGE startStrref highestStrref BEGIN
 	
 END // End of "ALTER_TLK_RANGE"
 
-// TODO: DELTE IT!
-OUTER_FOR(testIndex = 0; testIndex < slotNumbers; ++testIndex) 
+
+// REAPAIRS THE TEXT IN DIALOG.TLK
+// -------------------------------
+// Loop variables
+OUTER_SET specialCondition 	= 0
+OUTER_SET lastRepairIndex 	= 0
+OUTER_FOR(repairIndex = 0; repairIndex < slotNumbers; ++repairIndex) 
 BEGIN
-	OUTER_TEXT_SPRINT textTest $~%refTextArray%~(~%testIndex%~)
-	OUTER_TEXT_SPRINT refTest $~%refTextArray%~(~%testIndex%~)
-	PRINT ~textTest:%textTest% refTest:%refTest% testIndex:%testIndex%~
-END
+	// Array values
+	OUTER_TEXT_SPRINT 	tlkText 		$~%refTextArray%~(~%repairIndex%~)
+	OUTER_TEXT_SPRINT 	tlkSound 		$~%refSoundArray%~(~%repairIndex%~)
+	OUTER_SET 			tlkIndexRepair =$~%TLKindexRepaiArray%~(~%repairIndex%~)
 
+	// Changes the text only if that text needs repair 
+	ACTION_IF (~%tlkIndexRepair%~ > "-1") THEN
+	BEGIN
+		// Repairs the text in dalog.tlk
+		LAF STR_SET_EVAL_WITH_STRINGS
+		INT_VAR
+			strref 	= tlkIndexRepair
+		STR_VAR
+			text 	= ~%tlkText%~
+			sound	= ~%tlkSound%~
+		END
 
-// HAS ONLY TESTING PURPOSE. DELETE IT IF ISSUE ON GITHUB IS FIXED!
-/*
-LAF STR_SET_EVAL_WITH_STRINGS 
-INT_VAR
-	idx = d
-STR_VAR
-	text 	= ~%b%~
-	sound	= ~%c%~
+		// Sets dyn array value to !_NULL
+		OUTER_SET 		~!_position~ 	= repairIndex
+		OUTER_SET 		~!_maxSlots~ 	= slotNumbers
+		OUTER_SET		~!_collected~	= 0
+		OUTER_SPRINT 	~!_useArrayName~ ~%refTextArray%~
+		OUTER_SPRINT 	~!_arrayValue~	~!_NULL~
+		LAM DYN_ARRAY_SET_VALUES
+
+		// Sets special condition to true(1)
+		// When the collection of array values ​​is completed, the correct index of the last iteration is saved
+		OUTER_SET specialCondition 	= 1
+		OUTER_SET lastRepairIndex 	= repairIndex
+	END
+END // End of "for" loop
+// Inserting all array items into the array
+ACTION_IF(specialCondition = 1) THEN
+BEGIN
+		// Sets all dyn array values to !_NULL (Last !_NULL value)
+		OUTER_SET	 ~!_position~ 	= lastRepairIndex
+		OUTER_SET	 ~!_maxSlots~ 	= slotNumbers
+		OUTER_SET	 ~!_collected~	= 1
+		OUTER_SPRINT ~!_useArrayName~ ~%refTextArray%~
+		OUTER_SPRINT ~!_arrayValue~	 ~!_NULL~
+		LAM DYN_ARRAY_SET_VALUES
 END
-*/			

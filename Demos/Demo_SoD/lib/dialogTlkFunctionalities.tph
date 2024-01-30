@@ -54,10 +54,10 @@ END// End of "RESOLVE_STR_REF_WITH_STRINGS"
 // ============
 // text 	-> The text found in dialog.tlk
 // sound	-> The name of the soundfile without ".wav" found in the dialog.tlk 
-// idx		-> The stringref index value found in the dialog.tlk
+// strref	-> The stringref index value found in the dialog.tlk
 DEFINE_DIMORPHIC_FUNCTION STR_SET_EVAL_WITH_STRINGS 
 	INT_VAR
-		idx = 0
+		strref	= 0
 	STR_VAR
 		text 	= ~!_NULL~
 		sound	= ~!_NULL~
@@ -73,9 +73,9 @@ BEGIN
 		FAIL ~DEFINE_DIMORPHIC_FUNCTION STR_SET_EVAL_WITH_STRINGS -> The correct argument for sound is missing. The argument !_NULL is forbidden.~
 	END
 	// Checks if a valid idx is given
-	ACTION_IF (~%idx%~ < 0) THEN 
+	ACTION_IF (~%strref%~ < 0) THEN 
 	BEGIN
-		FAIL ~DEFINE_DIMORPHIC_FUNCTION STR_SET_EVAL_WITH_STRINGS -> The correct argument for idx is missing. The value is %idx%, but it needs to be greater or equal than zero.~
+		FAIL ~DEFINE_DIMORPHIC_FUNCTION STR_SET_EVAL_WITH_STRINGS -> The correct argument for strref is missing. The value is %strref%, but it needs to be greater or equal than zero.~
 	END
 	// Checks if sound name has more than 8 characters
 	ACTION_IF (STRING_LENGTH ~%sound%~ > 8) THEN
@@ -87,7 +87,7 @@ BEGIN
 	// Core part of this function. This part takes the string parameters  
 	// and uses them in the same way as STRING_SET_EVALUATE.
 	<<<<<<<<./weidu_external/workspace/!_TemporaryStringSetEvaluate.tph
-	STRING_SET_EVALUATE %idx% ~%text%~ [%sound%]
+	STRING_SET_EVALUATE %strref% ~%text%~ [%sound%]
 	>>>>>>>>
 	COPY ~./weidu_external/workspace/!_TemporaryStringSetEvaluate.tph~ ~./weidu_external/%MOD_FOLDER%/temp/values/!_TemporaryStringSetEvaluate.tph~ EVALUATE_BUFFER
 	REINCLUDE ~./weidu_external/%MOD_FOLDER%/temp/values/!_TemporaryStringSetEvaluate.tph~

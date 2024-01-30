@@ -4,7 +4,7 @@
 // -----------
 BACKUP ~weidu_external/demo_sod/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR ~Incrementis (incrementis@gmail.com)~
-VERSION ~v0.29.22~
+VERSION ~v0.29.23~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
