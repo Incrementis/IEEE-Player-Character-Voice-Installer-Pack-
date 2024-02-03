@@ -10,7 +10,7 @@
 // Parameters:|
 // ============
 // text 	-> The text found in dialog.tlk
-// sound	-> The name of the soundfile without ".wav" found in the dialog.tlk 
+// sound	-> The name of the soundfile without e.g. ".wav" found in the dialog.tlk 
 // strRef	-> The string reference number which is found
 DEFINE_DIMORPHIC_FUNCTION RESOLVE_STR_REF_WITH_STRINGS
     STR_VAR
@@ -52,9 +52,9 @@ END// End of "RESOLVE_STR_REF_WITH_STRINGS"
 // -------------------------------------------------------------------------------------
 // Parameters:|
 // ============
-// text 	-> The text found in dialog.tlk
-// sound	-> The name of the soundfile without ".wav" found in the dialog.tlk 
-// strref	-> The stringref index value found in the dialog.tlk
+// text 	-> The text that will be replaced at the strref position in dialog.tlk
+// sound	-> The name of the soundfile without e.g. ".wav" found in the dialog.tlk 
+// strref	-> The stringref index value used as the position in dialog.tlk
 DEFINE_DIMORPHIC_FUNCTION STR_SET_EVAL_WITH_STRINGS 
 	INT_VAR
 		strref	= 0
@@ -72,7 +72,7 @@ BEGIN
 	BEGIN
 		FAIL ~DEFINE_DIMORPHIC_FUNCTION STR_SET_EVAL_WITH_STRINGS -> The correct argument for sound is missing. The argument !_NULL is forbidden.~
 	END
-	// Checks if a valid idx is given
+	// Checks if a valid strref is given
 	ACTION_IF (~%strref%~ < 0) THEN 
 	BEGIN
 		FAIL ~DEFINE_DIMORPHIC_FUNCTION STR_SET_EVAL_WITH_STRINGS -> The correct argument for strref is missing. The value is %strref%, but it needs to be greater or equal than zero.~
