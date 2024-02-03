@@ -1,0 +1,33 @@
+// Never Forget: Comments can "lie", but code not so much ;P
+// CHECKS ARRAYS CONSISTENCY
+// -------------------------
+// Initilizes flag
+OUTER_SET failed = 0
+// Takes the name from the array and compares it to the other names in the array
+OUTER_FOR(voxIndex = 0; voxIndex < nameNumbers; ++voxIndex) 
+BEGIN
+	// This is the name value that will be compared to the following names in the array
+	OUTER_SPRINT previousVox $~%voxNameArray%~(~%voxIndex%~)
+	
+	// Checks if the all current names in array are subset of previous name
+	ACTION_IF ( (voxIndex+1) <= (nameNumbers - 1) ) THEN
+	BEGIN
+		OUTER_FOR(innerIndex = voxIndex+1; innerIndex < nameNumbers; ++innerIndex) 
+		BEGIN
+			OUTER_SPRINT currentVox $~%voxNameArray%~(~%innerIndex%~)	
+
+			// If subset is found then print warning
+			ACTION_IF ( (~%currentVox%~ STRING_COMPARE_REGEXP ~^%previousVox%~) = 0 OR (~%previousVox%~ STRING_COMPARE_REGEXP ~^%currentVox%~) = 0 ) THEN
+			BEGIN
+				WARN ~FOUND SUBSET: In "CheckArrays.tpa" -> Found voice name subset in "%currentVox%" and "%previousVox%"~
+				OUTER_SET failed = 1
+			END
+		END // End of inner for loop
+	END // End of first "ACTION_IF"
+END // End of outer for loop
+
+// If a subset is found, the installation stops and gives an error message
+ACTION_IF (failed = 1) THEN
+BEGIN
+	FAIL ~In "CheckArrays.tpa" -> There are one or more voice name subsets in %voxNameArray%. Please, read the logfile for more information or search terminal output for "FOUND SUBSET".~
+END
