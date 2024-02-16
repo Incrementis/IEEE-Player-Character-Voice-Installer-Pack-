@@ -26,6 +26,8 @@ The demos for the respective game are ready for installation. There are demos fo
 * [DLCmerger](https://github.com/Argent77/A7-DlcMerger/releases) is recommended for installation
 
 ## Copyright
-The "*IEEE PCVI*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
+The "*IEEE PCVI Pack*" Project is not developed, supported, or endorsed by BioWare™, Interplay/BlackIsle, Beamdog, or Wizards of the Coast.
+
+Since "*IEEE ASfPC*" requires the installation of Audacity, [Audacity's copyright regulations](https://www.audacityteam.org/FAQ/) must be observed.
 
 Everything else outside of Audacity copyright terms is licensed under a [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/).
