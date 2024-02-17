@@ -1,0 +1,146 @@
+// ---INITIALIZE DYN ARRAY TEXTS
+OUTER_SPRINT ~Texts0~ ~Action Acknowledgement 7~ //"!_DEMB3_.wav" Action Acknowledgement 7 for SoD/BGEE/IWDEE or else BGEE2 Select Rare 4
+OUTER_SPRINT ~Texts1~ ~Selected 2~ //"!_DEMBg.wav" Selected 2
+OUTER_SPRINT ~Texts2~ ~Selected 4~ //"!_DEMO0.wav" Selected 4
+OUTER_SPRINT ~Texts3~ ~Action Acknowledgement 4~ //"!_DEMO0_.wav" Action Acknowledgement 4 for SoD/BGEE/IWDEE or else BGEE2 Select Rare 1
+OUTER_SPRINT ~Texts4~ ~Action Acknowledgement 5~ //"!_DEMO1_.wav" Action Acknowledgement 5 for SoD/BGEE/IWDEE or else BGEE2 Select Rare 2
+OUTER_SPRINT ~Texts5~ ~Action Acknowledgement 6~ //"!_DEMO2_.wav" Action Acknowledgement 6 for SoD/BGEE/IWDEE or else BGEE2 Select Rare 3
+OUTER_SPRINT ~Texts6~ ~Action Acknowledgement 7~ //"!_DEMO3_.wav" Action Acknowledgement 7 for SoD/BGEE/IWDEE or else BGEE2 Select Rare 4
+OUTER_SPRINT ~Texts7~ ~Battle Cry 2~ //"!_DEMO8.wav" Battle Cry 2
+OUTER_SPRINT ~Texts8~ ~Battle Cry 3~ //"!_DEMO9.wav" Battle Cry 3
+OUTER_SPRINT ~Texts9~ ~Battle Cry 1~ //"!_DEMOa.wav" Battle Cry 1
+OUTER_SPRINT ~Texts10~ ~Becoming Leader~ //"!_DEMOb.wav" Becoming Leader
+OUTER_SPRINT ~Texts11~ ~Tired~ //"!_DEMOc.wav" Tired
+OUTER_SPRINT ~Texts12~ ~Bored~ //"!_DEMOd.wav" Bored
+OUTER_SPRINT ~Texts13~ ~Badly Wounded~ //"!_DEMOe.wav" Badly Wounded
+OUTER_SPRINT ~Texts14~ ~Selected 1~ //"!_DEMOf.wav" Selected 1
+OUTER_SPRINT ~Texts15~ ~Selected 2~ //"!_DEMOg.wav" Selected 2
+OUTER_SPRINT ~Texts16~ ~Battle Cry 4~ //"!_DEMOg_.wav" Battle Cry 4
+OUTER_SPRINT ~Texts17~ ~Selected 3~ //"!_DEMOh.wav" Selected 3
+OUTER_SPRINT ~Texts18~ ~Battle Cry 5~ //"!_DEMOh_.wav" Battle Cry 5
+OUTER_SPRINT ~Texts19~ ~Action Acknowledgement 1~ //"!_DEMOi.wav" Action Acknowledgement 1
+OUTER_SPRINT ~Texts20~ ~Action Acknowledgement 2~ //"!_DEMOj.wav" Action Acknowledgement 2
+OUTER_SPRINT ~Texts21~ ~Action Acknowledgement 3~ //"!_DEMOk.wav" Action Acknowledgement 3
+OUTER_SPRINT ~Texts22~ ~Selected 5~ //"!_DEMOk_.wav" Selected 5
+OUTER_SPRINT ~Texts23~ ~Beeing Hit~ //"!_DEMOl.wav" Beeing Hit
+OUTER_SPRINT ~Texts24~ ~Selected 6~ //"!_DEMOl_.wav" Selected 6
+OUTER_SPRINT ~Texts25~ ~Dying~ //"!_DEMOm.wav" Dying
+OUTER_SPRINT ~Texts26~ ~IWDEE Action Acknowledgement 4~ //"!_DEMOs.wav" BGEE[IWDEE] Action Acknowledgement 4 or Action Acknowledgement 4 for BGEE2
+OUTER_SPRINT ~Texts27~ ~IWDEE Action Acknowledgement 5~ //"!_DEMOt.wav" BGEE[IWDEE] Action Acknowledgement 5 or Action Acknowledgement 5 for BGEE2
+OUTER_SPRINT ~Texts28~ ~IWDEE Action Acknowledgement 6~ //"!_DEMOu.wav" BGEE[IWDEE] Action Acknowledgement 6 or Action Acknowledgement 6 for BGEE2
+OUTER_SPRINT ~Texts29~ ~IWDEE Action Acknowledgement 7~ //"!_DEMOv.wav" BGEE[IWDEE] Action Acknowledgement 7 or Action Acknowledgement 7 for BGEE2
+OUTER_SPRINT ~Texts30~ ~Reaction to Party Member Death~ //"!_DEMOw.wav" Reaction to Party Member Death
+LAM ~!_Texts~
+// ---INITIALIZE DYN ARRAY NAMES
+OUTER_SPRINT ~VoxNames0~ ~!_DEMO~
+OUTER_SPRINT ~VoxNames1~ ~!_DEMB~
+LAM ~!_VoxNames~
+// ---INITIALIZE DYN ARRAY SELECTABLE NAMES
+OUTER_SPRINT ~VoxSelectNames0~ ~!_Demo(Complete):Female Robot~
+OUTER_SPRINT ~VoxSelectNames1~ ~!_Demo(Incomplete):Female Robot~
+LAM ~!_VoxSelectNames~	
+// ---INITIALIZE DYN ARRAY SOUNDS
+OUTER_SPRINT ~Sounds0~ ~!_DEMB3_~
+OUTER_SPRINT ~Sounds1~ ~!_DEMBg~
+OUTER_SPRINT ~Sounds2~ ~!_DEMO0~
+OUTER_SPRINT ~Sounds3~ ~!_DEMO0_~
+OUTER_SPRINT ~Sounds4~ ~!_DEMO1_~
+OUTER_SPRINT ~Sounds5~ ~!_DEMO2_~
+OUTER_SPRINT ~Sounds6~ ~!_DEMO3_~
+OUTER_SPRINT ~Sounds7~ ~!_DEMO8~
+OUTER_SPRINT ~Sounds8~ ~!_DEMO9~
+OUTER_SPRINT ~Sounds9~ ~!_DEMOa~
+OUTER_SPRINT ~Sounds10~ ~!_DEMOb~
+OUTER_SPRINT ~Sounds11~ ~!_DEMOc~
+OUTER_SPRINT ~Sounds12~ ~!_DEMOd~
+OUTER_SPRINT ~Sounds13~ ~!_DEMOe~
+OUTER_SPRINT ~Sounds14~ ~!_DEMOf~
+OUTER_SPRINT ~Sounds15~ ~!_DEMOg~
+OUTER_SPRINT ~Sounds16~ ~!_DEMOg_~
+OUTER_SPRINT ~Sounds17~ ~!_DEMOh~
+OUTER_SPRINT ~Sounds18~ ~!_DEMOh_~
+OUTER_SPRINT ~Sounds19~ ~!_DEMOi~
+OUTER_SPRINT ~Sounds20~ ~!_DEMOj~
+OUTER_SPRINT ~Sounds21~ ~!_DEMOk~
+OUTER_SPRINT ~Sounds22~ ~!_DEMOk_~
+OUTER_SPRINT ~Sounds23~ ~!_DEMOl~
+OUTER_SPRINT ~Sounds24~ ~!_DEMOl_~
+OUTER_SPRINT ~Sounds25~ ~!_DEMOm~
+OUTER_SPRINT ~Sounds26~ ~!_DEMOs~
+OUTER_SPRINT ~Sounds27~ ~!_DEMOt~
+OUTER_SPRINT ~Sounds28~ ~!_DEMOu~
+OUTER_SPRINT ~Sounds29~ ~!_DEMOv~
+OUTER_SPRINT ~Sounds30~ ~!_DEMOw~
+LAM ~!_Sounds~
+// ---INITIALIZE DYN ARRAY POSITIONS
+ACTION_IF (GAME_IS ~bgee~) OR  (FILE_EXISTS ~sod-dlc.zip~) OR (FILE_EXISTS ~dlc/sod-dlc.zip~) OR (GAME_IS ~iwdee~) THEN 
+BEGIN
+OUTER_SET ~Positions0~ = 38
+OUTER_SET ~Positions1~ = 27
+OUTER_SET ~Positions2~ = 29
+OUTER_SET ~Positions3~ = 35
+OUTER_SET ~Positions4~ = 36
+OUTER_SET ~Positions5~ = 37
+OUTER_SET ~Positions6~ = 38
+OUTER_SET ~Positions7~ = 10
+OUTER_SET ~Positions8~ = 11
+OUTER_SET ~Positions9~ = 9
+OUTER_SET ~Positions10~ = 6
+OUTER_SET ~Positions11~ = 7
+OUTER_SET ~Positions12~ = 8
+OUTER_SET ~Positions13~ = 20
+OUTER_SET ~Positions14~ = 26
+OUTER_SET ~Positions15~ = 27
+OUTER_SET ~Positions16~ = 12
+OUTER_SET ~Positions17~ = 28
+OUTER_SET ~Positions18~ = 13
+OUTER_SET ~Positions19~ = 32
+OUTER_SET ~Positions20~ = 33
+OUTER_SET ~Positions21~ = 34
+OUTER_SET ~Positions22~ = 30
+OUTER_SET ~Positions23~ = 18
+OUTER_SET ~Positions24~ = 31
+OUTER_SET ~Positions25~ = 19
+OUTER_SET ~Positions26~ = 79
+OUTER_SET ~Positions27~ = 80
+OUTER_SET ~Positions28~ = 81
+OUTER_SET ~Positions29~ = 82 
+OUTER_SET ~Positions30~ = 53
+LAM ~!_Positions~
+END
+// ---INITIALIZE DYN ARRAY POSITIONS
+ACTION_IF (GAME_IS ~bg2ee~) THEN 
+BEGIN
+OUTER_SET ~Positions0~ = 78
+OUTER_SET ~Positions1~ = 27
+OUTER_SET ~Positions2~ = 29
+OUTER_SET ~Positions3~ = 75
+OUTER_SET ~Positions4~ = 76
+OUTER_SET ~Positions5~ = 77
+OUTER_SET ~Positions6~ = 78
+OUTER_SET ~Positions7~ = 10
+OUTER_SET ~Positions8~ = 11
+OUTER_SET ~Positions9~ = 9
+OUTER_SET ~Positions10~ = 6
+OUTER_SET ~Positions11~ = 7
+OUTER_SET ~Positions12~ = 8
+OUTER_SET ~Positions13~ = 20
+OUTER_SET ~Positions14~ = 26
+OUTER_SET ~Positions15~ = 27
+OUTER_SET ~Positions16~ = 12
+OUTER_SET ~Positions17~ = 28
+OUTER_SET ~Positions18~ = 13
+OUTER_SET ~Positions19~ = 32
+OUTER_SET ~Positions20~ = 33
+OUTER_SET ~Positions21~ = 34
+OUTER_SET ~Positions22~ = 30
+OUTER_SET ~Positions23~ = 18
+OUTER_SET ~Positions24~ = 31
+OUTER_SET ~Positions25~ = 19
+OUTER_SET ~Positions26~ = 35
+OUTER_SET ~Positions27~ = 36
+OUTER_SET ~Positions28~ = 37
+OUTER_SET ~Positions29~ = 38
+OUTER_SET ~Positions30~ = 53
+LAM ~!_Positions~
+END
