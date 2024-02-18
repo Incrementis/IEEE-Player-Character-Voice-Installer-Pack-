@@ -14,6 +14,16 @@ The latest version can be [downloaded here](https://github.com/Incrementis/IEEE-
 ## More Information
 * More detailed information(Features, Compatibility, Languages, etc.) about [IEEE ASfPC](https://github.com/Incrementis/IEEE-Audacity-Savefiles-for-Player-Character-) and [IEEE PCVI](https://github.com/Incrementis/IEEE-Player-Character-Voice-Installer-/tree/main) can be found in the respective repositories.
 
+To make it a little clearer, I assume that not everyone is using Audacity for recordings, so I made two projects and put them into a package.
+
+I use the package at a meta level like this:
+
+1. Record and rename voice lines via IEEE ASfPC
+2. Distribute the renamed voice lines and make them available as an installable mod via IEEE PCVI
+3. The demos show what the end result could look like
+
+I recommend reading the wikis and guides that the projects offer.
+
 ## Demos
 The demos for the respective game are ready for installation. There are demos for:
 * BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
