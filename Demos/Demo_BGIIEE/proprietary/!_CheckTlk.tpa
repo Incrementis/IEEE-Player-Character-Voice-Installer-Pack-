@@ -4,10 +4,10 @@
 
 // DECLARES REPAIR-INDEX ARRAY
 // ---------------------------
-OUTER_SPRINT 	~TLKindexRepaiArray~  ~TLKRepairIndex~
+OUTER_SPRINT 	~TLKindexRepairArray~  ~TLKRepairIndex~
 // This array is only used in this file		
 OUTER_SET 		~!_slotNumbers~ 	= slotNumbers
-OUTER_SPRINT 	~!_setArrayName~	~%TLKindexRepaiArray%~
+OUTER_SPRINT 	~!_setArrayName~	~%TLKindexRepairArray%~
 LAM DYN_ARRAY_CREATE
 // INITIALIZES REPAIR-INDEX ARRAY
 // ------------------------------
@@ -17,7 +17,7 @@ BEGIN
 	OUTER_SET 		~!_position~ 	= repairIndex
 	OUTER_SET 		~!_maxSlots~ 	= slotNumbers
 	OUTER_SET		~!_collected~	= 0
-	OUTER_SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+	OUTER_SPRINT 	~!_useArrayName~ ~%TLKindexRepairArray%~
 	OUTER_SET 		~!_arrayValue~	= "-1"
 	LAM DYN_ARRAY_SET_VALUES
 END
@@ -25,7 +25,7 @@ END
 OUTER_SET 		~!_position~ 	= repairIndex - 1
 OUTER_SET 		~!_maxSlots~ 	= slotNumbers
 OUTER_SET		~!_collected~	= 1
-OUTER_SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+OUTER_SPRINT 	~!_useArrayName~ ~%TLKindexRepairArray%~
 OUTER_SET 		~!_arrayValue~	= "-1"
 LAM DYN_ARRAY_SET_VALUES
 
@@ -118,7 +118,7 @@ ALTER_TLK_RANGE startStrref highestStrref BEGIN
 			SET 	~!_position~ 	= index
 			SET 	~!_maxSlots~ 	= slotNumbers
 			SET		~!_collected~	= 0
-			SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+			SPRINT 	~!_useArrayName~ ~%TLKindexRepairArray%~
 			SET 	~!_arrayValue~	= strref		
 			LPM DYN_ARRAY_SET_VALUES
 
@@ -153,7 +153,7 @@ ALTER_TLK_RANGE startStrref highestStrref BEGIN
 		SET 	~!_position~ 	= lastRepairIndex
 		SET 	~!_maxSlots~ 	= slotNumbers
 		SET		~!_collected~	= 1
-		SPRINT 	~!_useArrayName~ ~%TLKindexRepaiArray%~
+		SPRINT 	~!_useArrayName~ ~%TLKindexRepairArray%~
 		SET 	~!_arrayValue~	= lastRepairStrref		
 		LPM DYN_ARRAY_SET_VALUES
 
@@ -182,7 +182,7 @@ BEGIN
 	// Array values
 	OUTER_TEXT_SPRINT 	tlkText 		$~%refTextArray%~(~%repairIndex%~)
 	OUTER_TEXT_SPRINT 	tlkSound 		$~%refSoundArray%~(~%repairIndex%~)
-	OUTER_SET 			tlkIndexRepair =$~%TLKindexRepaiArray%~(~%repairIndex%~)
+	OUTER_SET 			tlkIndexRepair =$~%TLKindexRepairArray%~(~%repairIndex%~)
 
 	// Changes the text only if that text needs repair 
 	ACTION_IF (~%tlkIndexRepair%~ > "-1") THEN
