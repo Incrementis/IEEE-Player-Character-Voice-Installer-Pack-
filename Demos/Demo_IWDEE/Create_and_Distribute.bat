@@ -223,6 +223,19 @@ Set voxSelectNames=!_VoxSelectNames
 Set sounds=!_Sounds
 Set positions=!_Positions
 
+REM ----------
+REM OGG to WAV
+REM ----------
+for /F "tokens=2 delims==" %%l in ('Set languages[') do (
+	REM --------------------------------------------
+	REM Changes path to rename sound files extension
+	REM --------------------------------------------
+	cd "%VOX_FOLDER%\%%l"
+	REM Reads all WAV files in folder and renames them accordingly.
+	For %%c in (*.ogg) Do ( 
+		REN "%%c" "%%~nc.wav")
+	)
+)
 
 REM ---------------------
 REM Main Loop (Languages)

@@ -4,7 +4,7 @@
 // -----------
 BACKUP ~weidu_external/demo_bg2ee/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR ~Incrementis (incrementis@gmail.com)~
-VERSION ~v0.29.23~
+VERSION ~v0.33.33~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
