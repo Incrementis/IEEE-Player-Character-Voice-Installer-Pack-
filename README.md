@@ -24,6 +24,10 @@ I use the package at a meta level like this:
 
 I recommend reading the wikis and guides that the projects offer.
 
+## Discussion
+* [Beamdog Forums](https://forums.beamdog.com/discussion/88276/package-ieee-player-character-voice-installer-pack)
+* [G3 Forums](https://www.gibberlings3.net/forums/topic/37890-packageieee-player-character-voice-installer-pack/) 
+
 ## Demos
 The demos for the respective game are ready for installation. There are demos for:
 * BG:EE (Baldur's Gate:Enhanced Edition) tested version is 2.6.6.0
