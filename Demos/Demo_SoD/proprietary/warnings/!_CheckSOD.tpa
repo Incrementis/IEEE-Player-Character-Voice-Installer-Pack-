@@ -9,7 +9,7 @@ BEGIN
 END
 
 
-OUTER_SPRINT warning @2147483644
+OUTER_SPRINT warning @1073741820
 
 
 // Checks all files
