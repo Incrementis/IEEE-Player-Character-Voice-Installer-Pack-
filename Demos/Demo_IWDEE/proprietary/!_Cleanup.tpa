@@ -13,9 +13,11 @@ OUTER_SPRINT ~!_deleteArray~ ~%voxSelectNameArray%~
 LAM DYN_ARRAY_CLEANUP
 OUTER_SPRINT ~!_deleteArray~ ~%voxPositionArray%~
 LAM DYN_ARRAY_CLEANUP
-OUTER_SPRINT ~!_deleteArray~ ~%TLKindexRepairArray%~
-LAM DYN_ARRAY_CLEANUP
-
+ACTION_IF(~%tlkRepairPerformed%~ == 1) THEN
+BEGIN
+    OUTER_SPRINT ~!_deleteArray~ ~%TLKindexRepairArray%~
+    LAM DYN_ARRAY_CLEANUP
+END
 // WeiDU INTERNAL CLEANUP!
 // -----------------------
 CLEAR_EVERYTHING
