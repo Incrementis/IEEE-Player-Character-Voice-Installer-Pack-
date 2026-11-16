@@ -4,7 +4,7 @@
 // -----------
 BACKUP ~weidu_external/demo_bg2ee/backup~ // %MOD_FOLDER% doesn't work here
 AUTHOR ~Incrementis (incrementis@gmail.com)~
-VERSION ~v1.2.24~
+VERSION ~v1.2.34~
 AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 
 
@@ -14,7 +14,7 @@ AUTO_EVAL_STRINGS// This will prevent the need of EVAL for string variables
 ALWAYS 
 	// LIBRARY INCLUDES(Don't touch these)
 	// -----------------------------------
-	INCLUDE ~%MOD_FOLDER%/lib/windows/dynArrayFunctionalities.tph~
+	INCLUDE ~%MOD_FOLDER%/lib/%WEIDU_OS%/dynArrayFunctionalities.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/dialogTlkFunctionalities.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/fileHandling.tph~
 	INCLUDE ~%MOD_FOLDER%/lib/errors.tph~
